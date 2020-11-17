@@ -1,21 +1,16 @@
 <template>
-  <div id="nav">
-    <router-link to="/">
-      Home
-    </router-link> |
-    <router-link to="/about">
-      About
-    </router-link>
-  </div>
   <router-view />
 </template>
 
 <style lang="stylus">
 #app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+  max-width: 400px
+  width: 100%
+  margin: 16px auto
+  background-color: #fff
+  border-radius: 16px
+  font-size: 15px
+  overflow: hidden
+  color: #455963
+  box-shadow 0 20px 80px rgba(0, 0, 0, 0.3)
 </style>
