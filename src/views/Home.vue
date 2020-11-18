@@ -64,15 +64,9 @@
 </template>
 
 <script lang="ts">
-import {
-  computed, defineComponent, ref
-} from 'vue'
-
+import { computed, defineComponent, ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
-import dayjs from 'dayjs'
-import iosWeek from 'dayjs/plugin/isoWeek'
-
-dayjs.extend(iosWeek)
+import getTodayStr from 'UTILS/getTodayStr'
 
 const filterTypes = [
   { key: 'all', label: 'All' },
@@ -92,7 +86,8 @@ export default defineComponent({
     const inputVal = ref<string>('')
     const activeType = ref<string>('all')
     const list = ref<TaskItem[]>([
-      { name: 'Morning walk', completed: true, uuid: uuidv4() }, { name: 'Meeting with Holden Caulfield', completed: false, uuid: uuidv4() }
+      { name: 'Morning walk', completed: true, uuid: uuidv4() },
+      { name: 'Meeting with Holden Caulfield', completed: false, uuid: uuidv4() }
     ])
     const filterList = computed(() => {
       switch (activeType.value) {
@@ -107,9 +102,7 @@ export default defineComponent({
       }
     })
 
-    const today = dayjs()
-    const dayOfWeek = ['Sun', 'Mon', 'Tus', 'Wed', 'Thu', 'Fri', 'Sat'][today.isoWeekday()]
-    const todayStr = ref<string>(dayOfWeek + today.format(' MMM DD YYYY'))
+    const todayStr = ref<string>(getTodayStr())
 
     const delTask = (uuid: string): void => {
       list.value.splice(list.value.findIndex((item) => item.uuid === uuid), 1)

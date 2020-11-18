@@ -17,9 +17,11 @@
       "jest"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "UTILS/*": ["src/util/*"],
+      "COMPS/*": ["src/components/*"],
+      "TYPES/*": ["src/types/*"],
+      "HOOKS/*": ["src/hooks/*"]
     },
     "lib": [
       "esnext",
@@ -36,6 +38,7 @@
     "tests/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "vue.config.ts"
   ]
 }
